@@ -20,7 +20,7 @@ from dotenv import load_dotenv
 import logging
 
 # Importa librerias locales
-import API_INEGI
+import API_Caller.API_INEGI as API_INEGI
 
 
 # Configuraciones iniciales -------------------------------------------------------------------------

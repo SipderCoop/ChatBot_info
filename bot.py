@@ -4,7 +4,7 @@
 from botbuilder.core import ActivityHandler, TurnContext
 from botbuilder.schema import ChannelAccount
 
-from API_INEGI import get_BIE_data
+from API_Caller.API_INEGI import get_BIE_data
 
 
 class MyBot(ActivityHandler):
