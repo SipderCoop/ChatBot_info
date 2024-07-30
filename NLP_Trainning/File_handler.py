@@ -18,18 +18,22 @@ import fitz
 # Función para leer archivos de texto
 def read_txt(file_path):
     try:
-        with open(file_path, 'r') as file:
+        with open(file_path, 'r', encoding='latin-1') as file:
             return file.read()
-    except IOError as e:
+    except IOError:
         print(f"Error al leer el archivo: {file_path}")
+    except UnicodeDecodeError:
+        print(f"Error de codificación al leer el archivo: {file_path}")
 
 # Función para leer archivos Word
 def read_docx(file_path):
     try:
         doc = Document(file_path)
         return '\n'.join([para.text for para in doc.paragraphs])
-    except IOError as e:
+    except IOError:
         print(f"Error al leer el archivo: {file_path}")
+    except UnicodeDecodeError:
+        print(f"Error de codificación al leer el archivo: {file_path}")
 
 
 # Función para leer archivos PDF
@@ -42,6 +46,8 @@ def read_pdf(file_path):
         return text
     except IOError as e:
         print(f"Error al leer el archivo: {file_path}")
+    except UnicodeDecodeError:
+        print(f"Error de codificación al leer el archivo: {file_path}")
 
 
 
